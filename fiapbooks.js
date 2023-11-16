@@ -23,6 +23,7 @@ const UsuarioSchema = new mongoose.Schema({
 const ProdutoSchema = new mongoose.Schema({
     codigo : {type : String, required : true},
     descricao : {type : String},
+    fornecedor : {type : String},
     data_fabricacao : {type : Date},
     qnt_estoque : {type : Number}
 });
@@ -62,10 +63,11 @@ app.post("/cadastrousuario", async(req, res)=>{
 app.post("/produtos", async(req, res)=>{
     const codigo = req.body.codigo;
     const descricao = req.body.descricao;
+    const fornecedor = req.body.fornecedor;
     const data_fabricacao = req.body.data_fabricacao;
     const qnt_estoque = req.body.qnt_estoque
 
-    if(codigo == null || descricao == null || data_fabricacao == null || qnt_estoque == null){
+    if(codigo == null || descricao == null || fornecedor == null || data_fabricacao == null || qnt_estoque == null){
         return res.status(400).json({error : "Preencha todos os campos"})
     }
 
@@ -78,6 +80,7 @@ app.post("/produtos", async(req, res)=>{
     const produto = new Produto({
         codigo : codigo,
         descricao : descricao,
+        fornecedor : fornecedor,
         data_fabricacao : data_fabricacao,
         qnt_estoque : qnt_estoque
     });
