@@ -1,1 +1,1 @@
-# fiapbooks
+# beautystore

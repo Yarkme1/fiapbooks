@@ -93,6 +93,14 @@ app.post("/produtos", async(req, res)=>{
     }
 });
 
+app.get("/cadastrousuario", async(req, res)=>{
+    res.sendFile(__dirname +"/cadastrousuario.html")
+});
+
+app.get("/produtos", async(req, res)=>{
+    res.sendFile(__dirname +"/produtolivro.html")
+});
+
 app.listen(port, ()=>{
     console.log(`O servido está rodando na porta ${port}`);
 });
