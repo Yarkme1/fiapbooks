@@ -98,7 +98,11 @@ app.get("/cadastrousuario", async(req, res)=>{
 });
 
 app.get("/produtos", async(req, res)=>{
-    res.sendFile(__dirname +"/produtolivro.html")
+    res.sendFile(__dirname +"/produtos.html")
+});
+
+app.get("", async(req, res)=>{
+    res.sendFile(__dirname +"/")
 });
 
 app.listen(port, ()=>{
